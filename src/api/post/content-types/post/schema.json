@@ -66,6 +66,11 @@
         }
       },
       "component": "hashtags.hash-tags"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
     }
   }
 }
