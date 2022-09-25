@@ -32,6 +32,6 @@
   },
   "license": "MIT",
   "workspaces": [
-    "plugins/*"
+    "src/plugins/**"
   ]
 }
