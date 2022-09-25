@@ -29,7 +29,11 @@ export default ({ env }) => [
   {
     name: "strapi::cors",
     config: {
-      origin: [env("CORS_LOCALHOST"), env("CORS_PRODUCTION")],
+      origin: [
+        env("CORS_LOCALHOST"),
+        env("CORS_PRODUCTION_FE"),
+        env("CORS_PRODUCTION_ADMIN"),
+      ],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
       keepHeaderOnError: false,
     },
