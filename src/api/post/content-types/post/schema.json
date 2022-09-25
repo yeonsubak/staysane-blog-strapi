@@ -48,30 +48,17 @@
       "type": "richtext",
       "required": true
     },
-    "publishedDate": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "datetime",
-      "required": true
-    },
-    "hashtags": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "hashtags.hash-tags"
-    },
     "author": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::author.author",
       "inversedBy": "posts"
+    },
+    "hashtags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::hashtag.hashtag",
+      "mappedBy": "posts"
     }
   }
 }
