@@ -2,13 +2,14 @@
     "collectionName": "components_hashtags_hash_tags",
     "info": {
         "displayName": "Hash Tags",
-        "icon": "hashtag"
+        "icon": "hashtag",
+        "description": ""
     },
     "options": {},
     "attributes": {
         "hashtag": {
             "type": "string",
-            "unique": true
+            "unique": false
         }
     }
 }
