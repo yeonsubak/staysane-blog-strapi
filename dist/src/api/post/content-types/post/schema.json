@@ -19,7 +19,7 @@
         "coverImg": {
             "type": "media",
             "multiple": false,
-            "required": false,
+            "required": true,
             "allowedTypes": [
                 "images",
                 "videos"
@@ -59,6 +59,15 @@
             "relation": "manyToMany",
             "target": "api::hashtag.hashtag",
             "mappedBy": "posts"
+        },
+        "coverImgBGColor": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "required": true
         }
     }
 }
