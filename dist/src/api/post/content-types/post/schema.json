@@ -77,6 +77,12 @@
             },
             "type": "integer",
             "required": true
+        },
+        "playlist": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::playlist.playlist",
+            "inversedBy": "posts"
         }
     }
 }
