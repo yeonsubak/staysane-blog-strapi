@@ -83,6 +83,16 @@
             "relation": "manyToOne",
             "target": "api::playlist.playlist",
             "inversedBy": "posts"
+        },
+        "view": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "integer",
+            "default": 0,
+            "min": 0
         }
     }
 }
