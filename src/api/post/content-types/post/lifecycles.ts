@@ -1,30 +1,31 @@
 import axios from "axios";
 
-const vercelWebHook = () => {
-  axios.post(
-    "https://api.vercel.com/v1/integrations/deploy/prj_bBvHt3dlBTxzgmXyF2x64FkWkau8/1MlLf95C5K"
-  );
-}
+const vercelWebHook = (publishedAt: string | undefined | null) => {
+  // Use an environment variable to protect webhook URL
+  const webhookURL = process.env.VERCEL_WEBHOOK_URL;
 
+  // If publishedAt is not null or undefined; fires webhook on Vercel to redeploy
+  publishedAt ? axios.post(webhookURL) : null;
+};
 
 export default {
   afterCreate(event) {
-    vercelWebHook();
+    vercelWebHook(event.result.publishedAt);
   },
 
   afterCreateMany(event) {
-    vercelWebHook();
+    vercelWebHook(event.result.publishedAt);
   },
 
   afterUpdate(event) {
-    vercelWebHook();
+    vercelWebHook(event.result.publishedAt);
   },
 
   afterDelete(event) {
-    vercelWebHook();
+    vercelWebHook(event.result.publishedAt);
   },
 
   afterDeleteMany(event) {
-    vercelWebHook();
+    vercelWebHook(event.result.publishedAt);
   },
 };

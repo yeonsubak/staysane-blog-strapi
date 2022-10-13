@@ -4,25 +4,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
-function vercelWebHook() {
-    axios_1.default.post("https://api.vercel.com/v1/integrations/deploy/prj_bBvHt3dlBTxzgmXyF2x64FkWkau8/1MlLf95C5K");
-}
-function asdf() {
-}
+const vercelWebHook = (publishedAt) => {
+    // Use an environment variable to protect webhook URL
+    const webhookURL = process.env.VERCEL_WEBHOOK_URL;
+    publishedAt ? axios_1.default.post(webhookURL) : null;
+};
 exports.default = {
     afterCreate(event) {
-        vercelWebHook();
+        vercelWebHook(event.result.publishedAt);
     },
     afterCreateMany(event) {
-        vercelWebHook();
+        vercelWebHook(event.result.publishedAt);
     },
     afterUpdate(event) {
-        vercelWebHook();
+        vercelWebHook(event.result.publishedAt);
     },
     afterDelete(event) {
-        vercelWebHook();
+        vercelWebHook(event.result.publishedAt);
     },
     afterDeleteMany(event) {
-        vercelWebHook();
+        console.log(event.result);
+        vercelWebHook(event.result.publishedAt);
     },
 };
