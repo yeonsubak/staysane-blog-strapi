@@ -12,6 +12,16 @@ export default ({ env }) => ({
           },
       },
   },
+  graphql: {
+    enabled: true,
+    config: {
+      endpoint: '/graphql',
+      shadowCRUD: true,
+      playgroundAlways: false,
+      depthLimit: 10,
+      amountLimit: 100,
+    }
+  },
   'editorjs': {
     enabled: true,
     resolve: './src/plugins/strapi-plugin-react-editorjs'
